@@ -761,3 +761,100 @@ Processing by PostsController#edit as HTML
   [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 4]]
   Rendered posts/edit.html.erb within layouts/application (16.0ms)
 Completed 200 OK in 347ms (Views: 318.0ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.8ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "yay"], ["description", "whoo hoo"], ["created_at", "2019-09-25 20:36:55.917868"], ["updated_at", "2019-09-25 20:36:55.917868"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/" for ::1 at 2019-09-25 13:37:50 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering /Users/melissawilliams/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/railties-5.0.7.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/melissawilliams/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/railties-5.0.7.1/lib/rails/templates/rails/welcome/index.html.erb (5.5ms)
+Completed 200 OK in 38ms (Views: 15.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/1" for ::1 at 2019-09-25 13:37:56 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (1.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 530ms (Views: 501.8ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/posts/1/edit" for ::1 at 2019-09-25 13:38:04 -0700
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/edit.html.erb within layouts/application (23.7ms)
+Completed 200 OK in 44ms (Views: 41.6ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/posts/1" for ::1 at 2019-09-25 13:38:08 -0700
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yDH7UqPdmKxeJgO+UYaTabcExfZejt157i33pHeC0TiAl2b5k9tXMr5EYHxuWfAw5RSHcfADmeZiO8JmukDvPA==", "post"=>{"title"=>"Rails Introduction Quiz", "description"=>"testing"}, "commit"=>"Update Post", "id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.5ms)[0m  [1m[33mUPDATE "posts" SET "description" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["description", "testing"], ["updated_at", "2019-09-25 20:38:08.980389"], ["id", 1]]
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+No template found for PostsController#update, rendering head :no_content
+Completed 204 No Content in 41ms (ActiveRecord: 5.4ms)
+
+
+Started GET "/posts/1" for ::1 at 2019-09-25 13:38:20 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 14ms (Views: 12.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/1" for ::1 at 2019-09-25 13:38:47 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 30ms (Views: 23.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts/4" for ::1 at 2019-09-25 13:38:49 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 20ms (Views: 18.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/posts/4/edit" for ::1 at 2019-09-25 13:38:53 -0700
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/edit.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 28ms (Views: 23.9ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/posts/4" for ::1 at 2019-09-25 13:38:58 -0700
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sfma/XLJEo0zsQPMU8RyS9UIBbuycZmwKBMHpwijzkb5XwdWQs/dE9PTYA5sGxEShxhHPBz83S+kBTJlxWHwQg==", "post"=>{"title"=>"xxzxczbbbb", "description"=>"did it work?"}, "commit"=>"Update Post", "id"=>"4"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (3.5ms)[0m  [1m[33mUPDATE "posts" SET "description" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["description", "did it work?"], ["updated_at", "2019-09-25 20:38:58.538659"], ["id", 4]]
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/4
+Completed 302 Found in 15ms (ActiveRecord: 6.2ms)
+
+
+Started GET "/posts/4" for ::1 at 2019-09-25 13:38:58 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 19ms (Views: 15.8ms | ActiveRecord: 0.4ms)
+
+
